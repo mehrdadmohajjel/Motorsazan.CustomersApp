@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Motorsazan.CustomersApp.Views.Pages.ContactUsPage"
+             xmlns:components="clr-namespace:Motorsazan.CustomersApp.Views.Components;assembly=Motorsazan.CustomersApp"
+             xmlns:extensions="clr-namespace:Motorsazan.CustomersApp.Extensions;assembly=Motorsazan.CustomersApp"
+             xmlns:mpas="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             Title="تماس با ما">
+
+
+    <AbsoluteLayout BackgroundColor="#fafafa" VerticalOptions="FillAndExpand">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"  />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackLayout Grid.Row="0" Grid.Column="0" >
+                <mpas:Map IsShowingUser="False" >
+                    <x:Arguments>
+                        <mpas:MapSpan>
+                            <x:Arguments>
+                                <mpas:Position>
+                                    <x:Arguments>
+                                        <x:Double>38.051113</x:Double>
+                                        <x:Double>46.188430</x:Double>
+                                    </x:Arguments>
+                                </mpas:Position>
+                                <x:Double>0.01</x:Double>
+                                <x:Double>0.01</x:Double>
+                            </x:Arguments>
+                        </mpas:MapSpan>
+                    </x:Arguments>
+                    <mpas:Map.Pins>
+                        <mpas:Pin Label="شرکت موتورسازان تراکتورسازی ایران"
+                                  Address="تبریز ،جاده سردرود، مجتمع کارخانجات تراکتورسازی ایرانف شرکت موتورسازان"
+                       Type="Place">
+                            <mpas:Pin.Position>
+                                <mpas:Position>
+                                    <x:Arguments>
+                                        <x:Double>38.051113</x:Double>
+                                        <x:Double>46.188430</x:Double>
+                                    </x:Arguments>
+                                </mpas:Position>
+                            </mpas:Pin.Position>
+                        </mpas:Pin>
+                    </mpas:Map.Pins>
+
+                </mpas:Map>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="0" >
+                <ListView x:Name="SaleDetail" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <MenuItem Text=" تماس" 
+                                                  Clicked="MenuCallItem_Clicked_Clicked"  CommandParameter="{Binding .}" 
+                                                  IconImageSource="{extensions:ImageResource Motorsazan.CustomersApp.Resources.Images.Agents.outgoing_call.png}"/>
+
+                                </ViewCell.ContextActions>
+                                    <StackLayout Orientation="Horizontal">
+                                        <BoxView Color="#334965" WidthRequest="6"/>
+                                    <StackLayout>
+                                        <Label Text="{Binding Title}"  HorizontalOptions="StartAndExpand"></Label>
+                                    </StackLayout>
+                                    <Label Text="{Binding ShowPhoneNumber}" TextColor="Gray" HorizontalOptions="StartAndExpand" ></Label>
+
+                                </StackLayout>
+
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <StackLayout Grid.Row="2">
+                <Button   Text="          www.motorsazan.ir          "  BackgroundColor="#1b499f" TextColor="White"  HorizontalOptions="Center" CornerRadius="10"  Clicked="Button_Clicked" />
+            </StackLayout>
+
+        </Grid>
+
+
+        <components:NavigationMenuView AbsoluteLayout.LayoutBounds="1,1,1,80" 
+                                       AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional" />
+    </AbsoluteLayout>
+</ContentPage>

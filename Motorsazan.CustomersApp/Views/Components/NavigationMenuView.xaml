@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Motorsazan.CustomersApp.Views.Components.NavigationMenuView"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:extensions="clr-namespace:Motorsazan.CustomersApp.Extensions" xmlns:button="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms" xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Grid">
+                <Setter Property="ColumnSpacing" Value="0" />
+                <Setter Property="RowSpacing" Value="0" />
+            </Style>
+            <Style TargetType="ImageButton">
+                <Setter Property="BackgroundColor" Value="#FAFAF"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+                <Setter Property="Padding" Value="7"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <StackLayout HeightRequest="80">
+        <AbsoluteLayout VerticalOptions="FillAndExpand">
+
+            <ffimageloadingsvg:SvgCachedImage AbsoluteLayout.LayoutBounds="1,1,1,1"
+                   AbsoluteLayout.LayoutFlags="All"
+                   Aspect="AspectFill"
+                   Source="resource://Motorsazan.CustomersApp.Resources.Images.NavigationMenu.NavigationMenuBackgroundShape.svg"/>
+
+            <Grid AbsoluteLayout.LayoutBounds="0,0,1,1"
+                  AbsoluteLayout.LayoutFlags="All"
+                  Padding="0, 5, 0, 5"
+                  ColumnDefinitions="*, *, 10, 1.1*, 10, *, *">
+
+                <ImageButton x:Name="ProductsBtn"
+                             Grid.Column="0" 
+                             Clicked="ProductsBtn_Clicked"
+                             Source="{extensions:ImageResource Motorsazan.CustomersApp.Resources.Images.NavigationMenu.Products.png}"/>
+
+                <ImageButton x:Name="AgentsBtn" 
+                             Grid.Column="1"
+                             Clicked="AgentsBtn_Clicked"
+                             Source="{extensions:ImageResource Motorsazan.CustomersApp.Resources.Images.NavigationMenu.Agents.png}"/>
+
+                <StackLayout Grid.Column="3" 
+                             VerticalOptions="Center" 
+                             HorizontalOptions="Center">
+
+                    <!--<ImageButton x:Name="HomeBtn" 
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="FillAndExpand"
+                                 Padding="1"
+                                 Margin="0, -50, 0, 0"
+                                 CornerRadius="50"
+                                 BackgroundColor="#1b499f"
+                                 Clicked="HomeBtn_Clicked"
+                                 Source="{extensions:ImageResource Motorsazan.CustomersApp.Resources.Images.NavigationMenu.Home.png}"/>-->
+                    <button:SfButton                                 
+                                    VerticalOptions="FillAndExpand"
+                                    Padding="1"
+                                    Margin="0, -50, 0, 0"
+                                    BackgroundColor="#1b499f"
+                                    BorderWidth="0" 
+                                    CornerRadius="60" 
+                                    HeightRequest="80" 
+                                    WidthRequest="80"  
+                                    Clicked="HomeBtn_Clicked">
+                        <button:SfButton.Content>
+                            <Image Source="{extensions:ImageResource Motorsazan.CustomersApp.Resources.Images.NavigationMenu.Home.png}"  />
+                        </button:SfButton.Content>
+                        <button:SfButton.BackgroundGradient>
+                            <gradient:SfRadialGradientBrush Radius="1.5">
+                                <gradient:SfRadialGradientBrush.GradientStops>
+                                    <gradient:SfGradientStop Color="#1b499f" Offset="0"/>
+                                    <gradient:SfGradientStop Color="#3066C8" Offset="1"/>
+                                </gradient:SfRadialGradientBrush.GradientStops>
+                            </gradient:SfRadialGradientBrush>
+                        </button:SfButton.BackgroundGradient>
+
+                    </button:SfButton>
+
+
+                </StackLayout>
+
+                <ImageButton x:Name="ValidationBtn" 
+                             Grid.Column="5"
+                             Clicked="ValidationBtn_Clicked"
+                             Source="{extensions:ImageResource Motorsazan.CustomersApp.Resources.Images.NavigationMenu.Validation.png}"/>
+
+                <ImageButton x:Name="ContactUsBtn" 
+                             Grid.Column="6" 
+                             Clicked="ContactUsBtn_Clicked"
+                             Source="{extensions:ImageResource Motorsazan.CustomersApp.Resources.Images.NavigationMenu.ContactUs.png}"/>
+
+            </Grid>
+        </AbsoluteLayout>
+    </StackLayout>
+</ContentView>

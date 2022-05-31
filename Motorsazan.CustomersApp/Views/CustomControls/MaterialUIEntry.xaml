@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Motorsazan.CustomersApp.Views.CustomControls.MaterialUIEntry"
+             xmlns:controls="clr-namespace:Motorsazan.CustomersApp.Views.CustomControls;assembly=Motorsazan.CustomersApp"
+             xmlns:extensions="clr-namespace:Motorsazan.CustomersApp.Extensions;assembly=Motorsazan.CustomersApp"
+             Margin="{OnPlatform Android='3,0,3,5', iOS='3,0,3,5'}"
+             x:Name="This">
+
+    <StackLayout>
+        <Grid>
+            <Frame HasShadow="False"
+                       x:Name="FrameElement"
+                       HeightRequest="50"
+                       BorderColor="{Binding BorderColor, Source={x:Reference This}}"
+                       CornerRadius="{OnPlatform Android=3}"
+                       Padding="{OnPlatform Android='2,5,0,5', iOS='8,0,8,0'}"
+                       Margin="{OnPlatform Android='0,0,0,0', iOS='0,0,0,0'}" >
+                <StackLayout Orientation="Horizontal" 
+                             HorizontalOptions="FillAndExpand">
+                    <Image x:Name="ImageElement"
+                           HorizontalOptions="StartAndExpand"
+                           VerticalOptions="Center"
+                           Aspect="AspectFit"
+                           Margin="10,0" >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="ImageElement_Tapped"
+                                NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Image x:Name="PasswordShowHideImageElement"
+                           Source="{extensions:ImageResource Motorsazan.CustomersApp.Resources.Images.Eye.png}"
+                           HorizontalOptions="End"
+                           Aspect="AspectFit"
+                           WidthRequest="25"
+                           HeightRequest="25"
+                           VerticalOptions="Center"
+                           Margin="10,0,0,0"
+                           IsVisible="{Binding IsPassword, Source={Reference This}}">
+                        
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="PasswordShowHideImageElement_Tapped"
+                                NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
+            </Frame>
+
+            <Label x:Name="PlaceHolderLabelElement"
+                   BackgroundColor="White" 
+                   HorizontalOptions="Start"
+                   Padding="5,0"
+                   TextColor="{Binding PlaceholderColor, Source={Reference This}}"
+                   Text="{Binding Placeholder,Source={x:Reference This}}"
+                   Margin="0,0,10,0"
+                   FontSize="18"
+                   VerticalOptions="Center" />
+
+            <controls:BorderLessEntry
+                HeightRequest="{OnPlatform iOS=40}"
+                x:Name="EntryElement" 
+                VerticalOptions="FillAndExpand"
+                Text="{Binding Text,Source={x:Reference This},Mode=TwoWay}"
+                Keyboard="{Binding Keyboard,Source={x:Reference This}}"
+                IsPassword="{Binding IsPassword,Source={x:Reference This}}"
+                Margin="50,-5,10,-5"
+                Focused="EntryElement_Focused"
+                Unfocused="EntryElement_Unfocused"/>
+        </Grid>
+    </StackLayout>
+</ContentView>

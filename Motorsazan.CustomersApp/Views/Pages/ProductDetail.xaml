@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             x:Name="this"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="clr-namespace:Motorsazan.CustomersApp.Views.Components"
+             xmlns:extensions="clr-namespace:Motorsazan.CustomersApp.Extensions;assembly=Motorsazan.CustomersApp"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             x:Class="Motorsazan.CustomersApp.Views.Pages.ProductDetail">
+    <AbsoluteLayout>
+
+
+     <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,0.9" 
+                     AbsoluteLayout.LayoutFlags="All">
+            <StackLayout Orientation="Vertical">
+
+                <StackLayout  BackgroundColor="#fafafa" 
+                              Margin="10,0,10,0"
+                              Padding="10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Padding="0,15,0,0" 
+                                     Grid.Row="0"
+                                     Grid.ColumnSpan="3">
+
+                            <Frame  Padding="0" 
+                                    CornerRadius="25" 
+                                    BackgroundColor="#1b499f"
+                                    IsClippedToBounds="True"
+                                    HeightRequest="150">
+
+                                <Image  x:Name="ProductImage"
+                                        VerticalOptions="Start" 
+                                        HorizontalOptions="Start"
+                                        Aspect="AspectFit" 
+                                        HeightRequest="140"/>
+                                
+                            </Frame>
+
+                        </StackLayout>
+
+
+                        <StackLayout Grid.Row="1" 
+                                Grid.Column="0" 
+                                     Margin=" -50,-40,0,0"
+                                     Orientation="Horizontal"
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="StartAndExpand"
+                                    Grid.ColumnSpan="3">
+
+                            <Label  x:Name="engineTypeLBL"
+                                    VerticalTextAlignment="Center" 
+                                    FontSize="24" 
+                                    TextColor="#ffffff" 
+                                    />
+
+                        </StackLayout>
+                        <StackLayout Grid.Row="3" 
+                                    Grid.Column="0" 
+                                    Orientation="Horizontal"
+                                     Margin="0,-40,0,0"
+                                    Grid.ColumnSpan="3">
+
+                            <ImageButton x:Name="CylinderBtn" 
+                                        HeightRequest="20"
+                                        BackgroundColor="Transparent"
+                                        Source="{extensions:ImageResource Motorsazan.CustomersApp.Resources.Images.ProductDetail.Cylinder.png}" />
+                            <Label VerticalTextAlignment="Center" 
+                                    Text="تعداد سیلندر: " 
+                                    FontSize="Medium" 
+                                   FontAttributes="Bold"
+                                    TextColor="#262626" />
+                            <Label  x:Name="numberOfCylinderLBL"
+                                    VerticalTextAlignment="Center" 
+                                    FontSize="Body" 
+                                    TextColor="#848484" />
+
+                        </StackLayout>
+                        <StackLayout Grid.Row="4" 
+                                    Grid.Column="0"
+                                    Margin="0,-70,0,0"
+                                    Orientation="Horizontal"
+                                    Grid.ColumnSpan="3">
+
+                            <ImageButton 
+                                        HeightRequest="20"
+                                        BackgroundColor="Transparent"
+                                        Source="{extensions:ImageResource Motorsazan.CustomersApp.Resources.Images.ProductDetail.Power.png}" />
+
+                            <Label VerticalTextAlignment="Center" 
+                                    Text="حداکثر توان: " 
+                                    FontSize="Medium" 
+                                   FontAttributes="Bold"
+                                    TextColor="#262626" />
+                            <Label  x:Name="maxPowerLBL"
+                                    VerticalTextAlignment="Center" 
+                                    FontSize="Body" 
+                                    TextColor="#848484" />
+
+                        </StackLayout>
+                        <StackLayout Grid.Row="5" 
+                                    Grid.Column="0" 
+                                    Margin="0,-95,0,0"
+                                    Orientation="Horizontal"
+                                    Grid.ColumnSpan="3">
+
+                            <ImageButton 
+                                        HeightRequest="20"
+                                        BackgroundColor="Transparent"
+                                        Source="{extensions:ImageResource Motorsazan.CustomersApp.Resources.Images.ProductDetail.Power.png}" />
+
+                            <Label VerticalTextAlignment="Center" 
+                                    Text="حداکثر گشتاور: " 
+                                    FontSize="Medium" 
+                                   FontAttributes="Bold"
+                                    TextColor="#262626" />
+                            <Label  x:Name="maxTorqueLBL"
+                                    VerticalTextAlignment="Center" 
+                                    FontSize="Body" 
+                                    TextColor="#848484" />
+
+                        </StackLayout>
+                        <StackLayout Grid.Row="6" 
+                                    Grid.Column="0" 
+                                    Orientation="Horizontal"
+                                    Margin="0,-130,0,0"
+                                    Grid.ColumnSpan="3">
+
+                            <ImageButton 
+                                        HeightRequest="20"
+                                        BackgroundColor="Transparent"
+                                        Source="{extensions:ImageResource Motorsazan.CustomersApp.Resources.Images.ProductDetail.Weight.png}" />
+
+                            <Label VerticalTextAlignment="Center" 
+                                    Text="وزن تقریبی: " 
+                                    FontSize="Medium" 
+                                   FontAttributes="Bold"
+                                    TextColor="#262626" />
+                            <Label  x:Name="approximateWeightLBL"
+                                    VerticalTextAlignment="Center" 
+                                    FontSize="Body" 
+                                    TextColor="#848484" />
+
+                        </StackLayout>
+                        <StackLayout Grid.Row="7" 
+                                    Grid.Column="0" 
+                                    Orientation="Horizontal"
+                                    Margin="0,-170,0,0"
+                                    Grid.ColumnSpan="3">
+
+                            <ImageButton 
+                                        HeightRequest="20"
+                                        BackgroundColor="Transparent"
+                                        Source="{extensions:ImageResource Motorsazan.CustomersApp.Resources.Images.ProductDetail.Height.png}" />
+
+                            <Label VerticalTextAlignment="Center" 
+                                    Text="طول: " 
+                                    FontSize="Medium" 
+                                   FontAttributes="Bold"
+                                    TextColor="#262626" />
+                            <Label  x:Name="heightLBL"
+                                    VerticalTextAlignment="Center" 
+                                    FontSize="Body" 
+                                    TextColor="#848484" />
+
+                        </StackLayout>
+                        <StackLayout Grid.Row="9" 
+                                    Grid.Column="0" 
+                                    Orientation="Horizontal"
+                                     Margin="0,-230,0,0"
+                                     Grid.ColumnSpan="3">
+
+                            <ImageButton 
+                                        HeightRequest="20"
+                                        BackgroundColor="Transparent"
+                                        Source="{extensions:ImageResource Motorsazan.CustomersApp.Resources.Images.ProductDetail.Length.png}" />
+
+                            <Label VerticalTextAlignment="Center" 
+                                    Text="ارتفاع: " 
+                                    FontSize="Medium" 
+                                   FontAttributes="Bold"
+                                    TextColor="#262626" />
+                            <Label  x:Name="lengthLBL"
+                                    VerticalTextAlignment="Center" 
+                                    FontSize="Body" 
+                                    TextColor="#848484" />
+
+                        </StackLayout>
+                        <StackLayout Grid.Row="8" 
+                                    Grid.Column="0" 
+                                    Orientation="Horizontal"
+                                    Margin="0,-210,0,0"
+                                    Grid.ColumnSpan="3">
+
+                            <ImageButton 
+                                        HeightRequest="20"
+                                        BackgroundColor="Transparent"
+                                        Source="{extensions:ImageResource Motorsazan.CustomersApp.Resources.Images.ProductDetail.Width.png}" />
+
+                            <Label VerticalTextAlignment="Center" 
+                                    Text="عرض: " 
+                                    FontSize="Medium" 
+                                   FontAttributes="Bold"
+                                    TextColor="#262626" />
+                            <Label  x:Name="widthLBL"
+                                    VerticalTextAlignment="Center" 
+                                    HorizontalTextAlignment="Start"
+                                    FontSize="Body" 
+                                    TextColor="#848484" />
+
+                        </StackLayout>
+                        <StackLayout Grid.Row="10" 
+                                    Grid.Column="0" 
+                                    Orientation="Vertical"
+                                    HorizontalOptions="EndAndExpand"
+                                    Margin="0,-150,0,0"
+                                    Grid.ColumnSpan="3">
+
+                            <buttons:SfButton x:Name="SfButton" 
+                                              Text="دریافت فایل راهنما" 
+                                              ShowIcon="True"
+                                              ImageSource="{extensions:ImageResource Motorsazan.CustomersApp.Resources.Images.ProductDetail.Download_Via_Browser.png}" 
+                                              Clicked="DownloadBtn_Clicked"
+                                              BackgroundColor="#1b499f"/>
+
+                        </StackLayout>
+
+                    </Grid>
+
+                </StackLayout>
+            </StackLayout>
+
+        </StackLayout>
+
+        <components:NavigationMenuView AbsoluteLayout.LayoutBounds="1,1,1,80" 
+                                       AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional" />
+
+    </AbsoluteLayout>
+</ContentPage>

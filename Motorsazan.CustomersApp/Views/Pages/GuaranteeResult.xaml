@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:components="clr-namespace:Motorsazan.CustomersApp.Views.Components" xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             x:Class="Motorsazan.CustomersApp.Views.Pages.GuaranteeResult"
+             Title="نتیجه اعتبارسنجی">
+    <AbsoluteLayout BackgroundColor="#fafafa"  >
+        <StackLayout Orientation="Vertical"
+                         VerticalOptions="Start"
+                         HorizontalOptions="Center"
+                         Padding="20,20,20,200"
+                         AbsoluteLayout.LayoutBounds="0,0,1,0.9" 
+                         AbsoluteLayout.LayoutFlags="All">
+
+            <StackLayout Padding="5,5,20,20" >
+
+                <forms:AnimationView
+                    x:Name="ResultnimationView"
+                    HeightRequest="150"
+                    Animation="loading-process.json"
+                    RepeatMode="Reverse"
+                    AutoPlay="True"
+                    Speed="1"/>
+
+            </StackLayout>
+            <Label x:Name="ResultLBL" FontSize="Large" HorizontalTextAlignment="Center" TextColor="Red" Padding="0,0,10,20"/>
+            <Label x:Name="DetailLBL" IsVisible="False" Text="مشخصات ثبت شده" FontSize="Large" TextColor="Red"/>
+            <StackLayout Orientation="Horizontal" x:Name="serialLayout" IsVisible=" false" >
+                <Label  Text="شماره سریال: " FontSize="Medium" TextColor="Red"  FontAttributes="Bold"/>
+                <Label x:Name="ProductSerailLBL" FontSize="Medium" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" x:Name="guarantiLayout" IsVisible=" false" >
+                <Label  Text="شماره گارانتی: " FontSize="Medium" TextColor="Red" FontAttributes="Bold" />
+                <Label x:Name="GuaranteeSerialLBL" FontSize="Medium" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" x:Name="productLayout" IsVisible=" false" >
+                <Label  Text="نام محصول: " FontSize="Medium"  TextColor="Red" FontAttributes="Bold"/>
+                <Label x:Name="ProductNameLBL" FontSize="Medium" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" x:Name="EngineTypeLayout" IsVisible=" false" >
+                <Label  Text="نوع موتور: " FontSize="Medium" TextColor="Red" FontAttributes="Bold" />
+                <Label x:Name="EngineTypeDescriptionLBL" FontSize="Medium" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" x:Name="CustomerLayout" IsVisible=" false" >
+                <Label  Text="خریدار: " FontSize="Medium" TextColor="Red" FontAttributes="Bold" />
+                <Label x:Name="CustomerNameLBL" FontSize="Medium" />
+            </StackLayout>
+
+
+        </StackLayout>
+        <components:NavigationMenuView AbsoluteLayout.LayoutBounds="1,1,1,80" 
+                                       AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional" />
+    </AbsoluteLayout>
+</ContentPage>

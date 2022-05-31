@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X6 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 9100 9100"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str0 {stroke:white;stroke-width:600;stroke-linejoin:round;fill:none}
+    .str1 {stroke:white;stroke-width:600;stroke-linecap:square;fill:none}
+	.str2 {stroke:white;stroke-width:600;fill:none}
+    .str3 {stroke:white;stroke-width:600;fill:none}
+    .str4 {stroke:white;stroke-width:600;stroke-linecap:round;fill:none}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_347669640">
+   <rect class="str0" x="375" y="383" width="8329" height="8334"/>
+   <ellipse class="str2" cx="4547" cy="4569" rx="4158" ry="4138"/>
+   <ellipse class="str0" cx="4547" cy="4569" rx="4158" ry="4138"/>
+   <rect class="str1" x="3463" y="430" width="2155" height="8239"/>
+   <rect class="str2" x="404" y="3418" width="3058" height="2156"/>
+   <rect class="str2" x="5645" y="3418" width="3058" height="2156"/>
+   <g>
+    <line class="str3" x1="4540" y1="383" x2="4540" y2= "383" />
+   </g>
+   <g>
+    <g>
+     <line class="str4" x1="4545" y1="4788" x2="5648" y2= "3438" />
+    </g>
+    <g>
+     <line class="str4" x1="3361" y1="3345" x2="4529" y2= "4788" />
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>

@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Motorsazan.CustomersApp.Views.Pages.GuaranteeValidationPage"
+             xmlns:extensions="clr-namespace:Motorsazan.CustomersApp.Extensions" 
+             xmlns:components="clr-namespace:Motorsazan.CustomersApp.Views.Components" 
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:sfPopup="clr-namespace:Syncfusion.XForms.PopupLayout;assembly=Syncfusion.SfPopupLayout.XForms"
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             Title="بررسی اصالت کالا با شماره سریال">
+
+    <AbsoluteLayout BackgroundColor="#fafafa" >
+
+        <Grid  VerticalOptions="Start"
+               Padding="0,50,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackLayout Padding="0,5,5,0"
+                         Orientation="Horizontal"
+                         VerticalOptions="Center"
+                         HorizontalOptions="Center"
+                         Grid.Row="0">
+                <Image x:Name="Resultimage"  Source="{extensions:ImageResource Motorsazan.CustomersApp.Resources.Images.GuaranteeValidation.validation.png}"/>
+
+            </StackLayout>
+            <StackLayout Padding="40,10,20,5"
+                         Orientation="Horizontal"
+                         VerticalOptions="Start"
+                         Grid.Row="1">
+                <inputLayout:SfTextInputLayout
+                            FlowDirection="RightToLeft"
+                            ContainerType="Outlined"
+                            Hint="کد گارانتی" 
+                            ShowCharCount="true"
+                            CharMaxLength="20"
+                            LeadingViewPosition="Inside"
+                            FocusedColor="#1b499f"
+                            WidthRequest="290"
+                            HelperText="لطفا کد گارانتی را وارد کنید" >
+                    
+                    <Entry  x:Name="GuaranteeSerialTXT"  />
+                    <inputLayout:SfTextInputLayout.LeadingView>
+                        <Label
+                         Text="&#x1F502;" />
+
+                    </inputLayout:SfTextInputLayout.LeadingView>
+                </inputLayout:SfTextInputLayout>
+                <buttons:SfButton x:Name="ShowGuaranteeSerialBTN"
+                                  CornerRadius="10"
+                                  ShowIcon="True"  
+                                  BackgroundColor="Transparent"
+                                  ImageSource="{extensions:ImageResource Motorsazan.CustomersApp.Resources.Images.GuaranteeValidation.barcode_scanner.png}"
+                                  Clicked="ShowGuaranteeSerialBTN_Clicked" >
+
+                </buttons:SfButton>
+            </StackLayout>
+            <StackLayout  Orientation="Horizontal" 
+                         Padding="40,10,20,5"
+                          Grid.Row="2">
+                <inputLayout:SfTextInputLayout
+                             LeadingViewPosition="Inside"
+                            FlowDirection="RightToLeft"
+                            ContainerType="Outlined"
+                            Hint="شماره سریال" 
+                            ShowCharCount="true"
+                            CharMaxLength="20"
+                            FocusedColor="#1b499f"
+                              WidthRequest="290"
+                            HelperText="لطفا شماره سریال را وارد کنید" >
+                    <Entry  x:Name="ProductSerialTXT"  />
+                    <inputLayout:SfTextInputLayout.LeadingView>
+                        <Label
+                         Text="&#x1F502;" />
+
+                    </inputLayout:SfTextInputLayout.LeadingView>
+
+
+                </inputLayout:SfTextInputLayout>
+
+                <buttons:SfButton x:Name="ShowSerialBarcodeBTN"
+                                  CornerRadius="10"
+                                  ShowIcon="True"  
+                                  BackgroundColor="Transparent"
+                                  ImageSource="{extensions:ImageResource Motorsazan.CustomersApp.Resources.Images.GuaranteeValidation.barcode_scanner.png}"
+                                  Clicked="ShowSerialBarcodeBTN_Clicked" >
+
+                </buttons:SfButton>
+
+
+            </StackLayout>
+            <StackLayout
+                Padding="0,20,40,0"
+                Grid.Row="3" VerticalOptions="Center"
+                HorizontalOptions="Center">
+                <buttons:SfButton x:Name="validateButton"
+                                  Text="تائید و بررسی سریال" 
+                                  IsEnabled="True"
+                                  IsCheckable="True"
+                                  BackgroundColor="#1b499f"
+                                  CornerRadius="50"
+                                  ShowIcon="True"
+                                  HeightRequest="50"
+                                  WidthRequest="250"
+                                  FontSize="22"
+                                  ImageSource="{extensions:ImageResource Motorsazan.CustomersApp.Resources.Images.GuaranteeValidation.validate-white.png}"
+                                  Clicked="validateButton_Clicked">
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="TextColor" Value="White" />
+                                </VisualState.Setters>
+                            </VisualState>
+
+                            <VisualState x:Name="Pressed" >
+                                <VisualState.Setters>
+                                    <Setter Property="TextColor" Value="Black" />
+                                </VisualState.Setters>
+                                
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
+
+                </buttons:SfButton>
+            </StackLayout>
+        </Grid>
+
+        <components:NavigationMenuView AbsoluteLayout.LayoutBounds="1,1,1,80" 
+                                       AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional" />
+
+        <sfPopup:SfPopupLayout x:Name="popupLayout">
+            <sfPopup:SfPopupLayout.PopupView>
+
+                <sfPopup:PopupView ShowHeader="False" ShowFooter="False" >
+                    <sfPopup:PopupView.ContentTemplate>
+                        <DataTemplate>
+                            <StackLayout x:Name="mainLayout">
+                                <zxing:ZXingScannerView IsScanning="True" IsAnalyzing="True" IsEnabled="True"  OnScanResult="ZXingScannerView_OnScanResult" WidthRequest="200" HeightRequest="200" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </sfPopup:PopupView.ContentTemplate>
+                </sfPopup:PopupView>
+            </sfPopup:SfPopupLayout.PopupView>
+            <sfPopup:SfPopupLayout.Content>
+                <StackLayout x:Name="layout">
+                </StackLayout>
+            </sfPopup:SfPopupLayout.Content>
+        </sfPopup:SfPopupLayout>
+        
+    </AbsoluteLayout>
+</ContentPage>

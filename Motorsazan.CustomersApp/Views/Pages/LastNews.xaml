@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="clr-namespace:Motorsazan.CustomersApp.Views.Components;assembly=Motorsazan.CustomersApp"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             x:Class="Motorsazan.CustomersApp.Views.Pages.LastNews"
+             Title="مشاهده متن کامل اعلان">
+    <AbsoluteLayout BackgroundColor="#fafafa"  Padding=" 5"  >
+        <border:SfBorder
+            BorderColor="#334965"
+            BorderWidth="2"
+            CornerRadius="4"
+           >
+            <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="2*" />
+            </Grid.RowDefinitions>
+
+                <Image x:Name="NewsImage" Grid.Row="0" FlowDirection="RightToLeft" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="150" HeightRequest="150"></Image>
+            <Label x:Name="TitleLbl" FontSize="Large" FlowDirection="RightToLeft" Grid.Row="1" Padding="0,0,0, 0" />
+            <Label x:Name="NewsTextLbl" FontSize="Medium" Grid.Row="2" FlowDirection="RightToLeft" Padding="0,-50,0, 0" VerticalOptions="FillAndExpand" HorizontalOptions="Start" />
+        </Grid>
+        </border:SfBorder>
+
+        <components:NavigationMenuView AbsoluteLayout.LayoutBounds="1,1,1,80" 
+                                       AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional" />
+    </AbsoluteLayout>
+
+</ContentPage>

@@ -1,0 +1,17 @@
+﻿
+namespace Motorsazan.CustomersApp.Api.Models.Base
+{
+    public class CheckFormAccess
+    {
+        public Status Status { get; set; }
+        public CheckFormAccessParams Params { get; set; }
+        public class CheckFormAccessParams
+        {
+            public FormAccessInfo HasAccessToPage { get; set; }
+        }
+        public class FormAccessInfo
+        {
+            public bool HasAccess { get; set; }
+        }
+    }
+}

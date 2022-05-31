@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    NavigationPage.HasNavigationBar="False"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:Motorsazan.CustomersApp.Views.Components"
+    xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    xmlns:extensions="clr-namespace:Motorsazan.CustomersApp.Extensions"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+    xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
+    xmlns:listView="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+    xmlns:controls="clr-namespace:Motorsazan.CustomersApp.Controls"
+    xmlns:behavior="clr-namespace:Motorsazan.CustomersApp.Behaviors"
+    xmlns:viewModel="clr-namespace:Motorsazan.CustomersApp.ViewModels"
+    xmlns:sfPopup="clr-namespace:Syncfusion.XForms.PopupLayout;assembly=Syncfusion.SfPopupLayout.XForms"
+    xmlns:notificationSlider="clr-namespace:Motorsazan.CustomersApp.Shared.Models.Output.NotificationSlider;assembly=Motorsazan.CustomersApp.Shared"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    x:Class="Motorsazan.CustomersApp.Views.Pages.MainPage"
+    Title="صفحه اصلی">
+    <ContentPage.BindingContext>
+        <viewModel:MainPageViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0, 20, 0, 0" />
+            <On Platform="Android" Value="0, 0, 0, 0" />
+            <On Platform="UWP" Value="0, 0, 0, 0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+    <AbsoluteLayout>
+        <Grid RowSpacing="10" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height ="*" />
+                <RowDefinition Height ="*" />
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0">
+                <Grid
+                Padding="15"
+                RowSpacing="0">
+                    <listView:SfListView
+                    x:Name="HomeListView"
+                    AutoFitMode="Height"
+                    ItemSpacing="8"
+                    ItemsSource="{Binding HealthCareCardItems}"
+                    SelectionMode="None"
+                    ItemTapped="SfListView_ItemTapped">
+
+                        <listView:SfListView.ItemTemplate>
+                            <DataTemplate>
+
+                                <controls:CustomShadowFrame
+                                Padding="0"
+                                BackgroundColor="{DynamicResource GrayShadowColor}"
+                                BorderWidth="0"
+                                CornerRadius="4"
+                                HasShadow="True"
+                                Radius="4">
+
+                                    <controls:CustomShadowFrame.Content>
+
+                                        <border:SfBorder
+                                        BorderColor="Transparent"
+                                        BorderWidth="0"
+                                        CornerRadius="4">
+                                            <Grid>
+                                                <gradient:SfGradientView>
+                                                    <gradient:SfGradientView.BackgroundBrush>
+                                                        <gradient:SfLinearGradientBrush>
+                                                            <gradient:SfLinearGradientBrush.GradientStops>
+                                                                <gradient:SfGradientStop Offset="0.0" Color="{Binding BackgroundGradientStart}" />
+                                                                <gradient:SfGradientStop Offset="1.0" Color="{Binding BackgroundGradientEnd}" />
+                                                            </gradient:SfLinearGradientBrush.GradientStops>
+                                                        </gradient:SfLinearGradientBrush>
+                                                    </gradient:SfGradientView.BackgroundBrush>
+                                                </gradient:SfGradientView>
+
+                                                <StackLayout Margin="15" Spacing="5">
+                                                    <Frame CornerRadius="15" 
+                                                           BackgroundColor="Transparent"
+                                                           HeightRequest="80"
+                                                           WidthRequest="80"
+                                                           Padding="8"
+                                                           IsClippedToBounds="True">
+
+                                                        <ffimageloadingsvg:SvgCachedImage  
+                                                                Aspect="AspectFit"
+                                                                Source="{Binding IconEmbeddedFileName}"
+                                                        WidthRequest="80"
+                                                        HeightRequest="80"/>
+
+                                                    </Frame>
+                                                    <Label
+                                                    FontFamily="BYekan"
+                                                    FontAttributes="Bold"
+                                                    FontSize="18"
+                                                    LineHeight="{OnPlatform Android=1.25,
+                                                                            Default=-1}"
+                                                    HorizontalTextAlignment="Center"
+                                                    Text="{Binding Name}"
+                                                    TextColor="black"/>
+                                                </StackLayout>
+                                            </Grid>
+                                        </border:SfBorder>
+
+                                    </controls:CustomShadowFrame.Content>
+                                </controls:CustomShadowFrame>
+
+                            </DataTemplate>
+                        </listView:SfListView.ItemTemplate>
+
+                        <listView:SfListView.LayoutManager>
+                            <listView:GridLayout SpanCount="2" />
+                        </listView:SfListView.LayoutManager>
+
+                        <listView:SfListView.Behaviors>
+                            <behavior:SfListViewExtendHeightBehavior />
+                        </listView:SfListView.Behaviors>
+
+                    </listView:SfListView>
+                </Grid>
+            </StackLayout>
+
+            <StackLayout Grid.Row="1"
+                    x:Name="NewsScroll" 
+                    IsVisible="false"  Padding="10">
+                <controls:CustomShadowFrame>
+                    <controls:CustomShadowFrame.Content>
+
+                    <border:SfBorder
+                        BorderColor="#334965"
+                        BorderWidth="2"
+                        CornerRadius="4">
+
+                        <StackLayout  BackgroundColor="White" 
+                              Margin="10,0,10,0">
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition  Width="*"></ColumnDefinition>
+                                        <ColumnDefinition  Width="*"></ColumnDefinition>
+                                        <ColumnDefinition  Width="*"></ColumnDefinition>
+                                        <ColumnDefinition  Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout Padding="0,5,0,0"   
+                                                     VerticalOptions="Center"
+                                                     Grid.Row="0" 
+                                                     Grid.Column="0" >
+
+                                        <Image x:Name="NewsImage"
+                                                       VerticalOptions="Center" 
+                                                       Aspect="AspectFill" 
+                                                       HeightRequest="50"
+                                                       WidthRequest="50"/>
+                                    </StackLayout>
+                                    <StackLayout Grid.Row="0" 
+                                                     Grid.Column="2" 
+                                                     Orientation="Vertical" 
+                                                     Grid.ColumnSpan="2">
+                                        <Label VerticalTextAlignment="Center" 
+                                                   x:Name="NewsTopic"
+                                                   FontAttributes="Bold"
+                                                   FontSize="14" 
+                                                   TextColor="#1b499f"
+                                                   Padding="5,5,0,0"/>
+
+                                    </StackLayout>
+
+                                    <StackLayout Grid.Row="1" 
+                                                     VerticalOptions="Center" 
+                                                     Grid.Column="0" 
+                                                     Grid.ColumnSpan="4"
+                                                     Orientation="Vertical">
+                                        <Label  VerticalTextAlignment="Center"  
+                                                                x:Name="NewsText"
+                                                                TextColor="#848484" 
+                                                                FontSize="Body"
+                                                                Padding="0,0,0,0"/>
+                                    </StackLayout>
+                                    <StackLayout Grid.Row="2" 
+                                                                 Grid.ColumnSpan="4" 
+                                                                 Grid.Column="0"
+                                                                 Orientation="Horizontal"
+                                                                 HorizontalOptions="EndAndExpand"
+                                                                 Padding=" 0,0,0,5">
+
+                                        <buttons:SfButton x:Name="SfButton" WidthRequest="100" Text="مشاهده ادامه مطلب" Clicked="SfButton_OnClicked" BackgroundColor="#1b499f" TextColor="White" >
+                                            <VisualStateManager.VisualStateGroups>
+                                                <VisualStateGroup x:Name="CommonStates">
+                                                    <VisualState x:Name="Normal">
+                                                        <VisualState.Setters>
+                                                            <Setter Property="TextColor" Value="White" />
+                                                        </VisualState.Setters>
+                                                    </VisualState>
+
+                                                    <VisualState x:Name="Pressed">
+                                                        <VisualState.Setters>
+                                                            <Setter Property="TextColor" Value="Black" />
+                                                        </VisualState.Setters>
+                                                    </VisualState>
+                                                </VisualStateGroup>
+                                            </VisualStateManager.VisualStateGroups>
+                                        </buttons:SfButton>
+
+                                    </StackLayout>
+
+                                </Grid>
+
+                            </StackLayout>
+                    </border:SfBorder>
+
+                </controls:CustomShadowFrame.Content>
+                </controls:CustomShadowFrame>
+
+            </StackLayout>
+
+        </Grid >
+
+
+        <components:NavigationMenuView AbsoluteLayout.LayoutBounds="1,1,1,80" 
+          AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional" />
+
+        <sfPopup:SfPopupLayout x:Name="ConnectivitypopUp" StaysOpen="True">
+            <sfPopup:SfPopupLayout.PopupView>
+                <sfPopup:PopupView HeightRequest="230"
+                           HeaderTitle="خطای عدم دسترسی به اینترنت"
+                           ShowFooter="False">
+                    <sfPopup:PopupView.ContentTemplate>
+                        <DataTemplate>
+                            <StackLayout VerticalOptions="Center" HorizontalOptions="EndAndExpand">
+                                <Image Source="{extensions:ImageResource Motorsazan.CustomersApp.Resources.Images.Main.warning.png}"
+                                       WidthRequest="45" HeightRequest="45" 
+                                       HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand" />
+
+                                <Label x:Name="lblNetworkStatus" Text="جهت استفاده از امکانات برنامه لطفا از برقراری ارتباط با اینترنت مطمئن شوید"
+                           WidthRequest="260"
+                           BackgroundColor="White"
+                           HorizontalOptions="FillAndExpand"
+                                       HorizontalTextAlignment="Center"
+                           />
+                            </StackLayout>
+                        </DataTemplate>
+                    </sfPopup:PopupView.ContentTemplate>
+                </sfPopup:PopupView>
+            </sfPopup:SfPopupLayout.PopupView>
+            <sfPopup:SfPopupLayout.Content>
+                <StackLayout x:Name="mainLayout">
+                    <Button x:Name="clickToShowPopup" Text="ClickToShowPopup" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+            </sfPopup:SfPopupLayout.Content>
+        </sfPopup:SfPopupLayout>
+
+    </AbsoluteLayout>
+
+</ContentPage>
